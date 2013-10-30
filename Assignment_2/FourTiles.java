@@ -63,9 +63,9 @@ private static final String TILE_LABEL = "CS106A";
 		add(tile);
 		
 		//compute coordinates for centering the GLabel text
-		tileX =+ (TILE_WIDTH / 2) - (text.getWidth() / 2);
-		tileY =+ (TILE_HEIGHT / 2) + (text.getAscent() / 2);	
-		text.setLocation(tileX, tileY);
+		double labelX = tileX + (TILE_WIDTH / 2) - (text.getWidth() / 2);
+		double labelY = tileY + (TILE_HEIGHT / 2) + (text.getAscent() / 2);	
+		text.setLocation(labelX, labelY);
 		add(text);
 	}
 }

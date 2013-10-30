@@ -1,6 +1,8 @@
-Here I will be posting my programs that I have designed in Java as answers to Stanfords CS106a. 
+These Programs are in response to Stanford's class CS106a.
 Not every answer to every problem will be here and there is no guarantee of these programs being the only
-or best way to solve the problems, but rather the way I have come up with, and are being put on GitHub for
-the sole purpose of gaining experience with Git and GitHub.
+or best way to solve the problems, but rather the way I have come up with, and are being put on GitHub mainly
+to gain experience with Git, GitHub and practicing Java Program Writing during my effort to learn
+to code. Enjoy and I would love any feedback.
 
-Also, I feel like HELLO WORLD is not exciting enough, so HELLO GALAXY
+As of now you can find the questions/ problems here: http://www.stanford.edu/class/cs106a/
+However, there is no guarantee this website will stay up and running.

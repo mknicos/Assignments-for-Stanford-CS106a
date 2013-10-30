@@ -1,16 +1,15 @@
 
-//	Matt Knicos
-//	mknicos@gmail.com
+// Matt Knicos
+// mknicos@gmail.com
 
 
 import java.awt.Color;
 import acm.program.*;
 import acm.graphics.*;
 /*
- * This program will draw a target such as one would use in Archery. It is adapted
- * and modified from a previous exercise, with the modifications being that
- * it will be centered on the screen, and have adjustable sizes of each ring with
- * constant variables
+ * This program will draw a target such as one would use in Archery. This version will allow
+ * you to change only the constant variable radius of the outer target ring, and all other rings
+ * will scale in size relative the the outer ring.
  */
 @SuppressWarnings("serial")
 
@@ -21,17 +20,17 @@ public class NewTarget extends GraphicsProgram {
 // Size of the outside of the Target
 // The inside rings will change based on this since the inside
 // rings are relative to the outer target
-private static final int OUT_TARGET_RADIUS = 72;
+private static final int OUT_TARGET_RADIUS = 100;
 
-// Radius of White Ring relative to Outer Target Radius
-private static final double INSIDE_TARGET_RADIUS = 46.8 ;
+// Radius of Inner Ring as a percent relative to Outer Target Radius
+private static final double INSIDE_TARGET_RADIUS = 0.65 ;
 
-//Radius of Bulls eye relative to Outer Target Radius
-private static final double BULLSEYE_RADIUS = 21.6 ;
+//Radius of Bulls eye as a percent relative to Outer Target Radius
+private static final double BULLSEYE_RADIUS = 0.3 ;
 
 	public void run(){
 
-	int xMid = (getWidth() / 2);
+	int xMid = (getWidth() / 2);				//Find mid point of screen
 	int yMid = (getHeight() / 2);
 	double targetX = xMid - OUT_TARGET_RADIUS;
 	double targetY = yMid - OUT_TARGET_RADIUS;
@@ -42,18 +41,20 @@ private static final double BULLSEYE_RADIUS = 21.6 ;
 	outterCircle.setColor(Color.RED);
 	
 	//Determine x,y and size of inner white ring
-	double insideX = xMid - INSIDE_TARGET_RADIUS;
-	double insideY = yMid - INSIDE_TARGET_RADIUS;
-	double innerDiam = 2 * INSIDE_TARGET_RADIUS;
+	double insideRadius = INSIDE_TARGET_RADIUS * OUT_TARGET_RADIUS;
+	double insideX = xMid - insideRadius;
+	double insideY = yMid - insideRadius;
+	double innerDiam = 2 * insideRadius;
 			
 	GOval innerCircle  = new GOval(insideX, insideY, innerDiam, innerDiam);
 	innerCircle.setFilled(true);
 	innerCircle.setColor(Color.WHITE);
 	
 	//Determine x,y, and size of bulls eye
-	double bullsX = xMid - BULLSEYE_RADIUS;
-	double bullsY = yMid - BULLSEYE_RADIUS;
-	double bullsDiam = 2 * BULLSEYE_RADIUS;
+	double bullsRadius = BULLSEYE_RADIUS * OUT_TARGET_RADIUS;
+	double bullsX = xMid - bullsRadius;
+	double bullsY = yMid - bullsRadius;
+	double bullsDiam = 2 * bullsRadius;
 			
 	GOval bullsEye = new GOval(bullsX, bullsY, bullsDiam, bullsDiam);
 	bullsEye.setFilled(true);

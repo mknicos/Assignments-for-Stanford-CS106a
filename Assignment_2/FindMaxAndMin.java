@@ -13,31 +13,40 @@ public class CompareUntilSentinel extends ConsoleProgram{
 	//Specifies the value of the sentinel
 	private static final int SENTINEL = 0;
 	
+	// Tell the user about the program
 	private void intro(){
 		println("This program finds the largest and smalles of a range of numbers.");
 		println("Please enter a number and hit enter");
 		println("When you are done entering numbers, enter " + SENTINEL);
 	}
 	
+	//Allows input of numbers, and a Sentinel to break the program
 	private void getNumbers(){
 		int initNum = readInt("?");
-		int MaxNum = initNum;
-		int MinNum = initNum;
-		if (initNum == 0){
-			println("I'm sorry, the first number connot be " + SENTINEL);	
+		int maxNum = initNum;
+		int minNum = initNum;
+		while (initNum == SENTINEL){
+			println("I'm sorry, the first number connot be " + SENTINEL);
+			initNum = readInt("?");
 		}
 		int input = initNum;
-		while(input != SENTINEL){
+		while(true){
 			input = readInt("?");
-			if (input < MinNum){
-				MinNum = input;
-			}else if (input > MaxNum){
-				MaxNum = input;
-			}else if {
-				
-			}
+			if (input == SENTINEL){
+				break;
+			} else if (input < minNum || input == minNum){
+				minNum = input;
+			} else if (input > maxNum || input == maxNum){
+				maxNum = input;
+			} else ;
 		}
-		//after while loop
-	}	
+		println("The smallest number is: " + minNum);
+		println("The largest number is: " + maxNum);
 		
+	}
+	
+	public void run(){
+		intro();
+		getNumbers();
+	}
 }

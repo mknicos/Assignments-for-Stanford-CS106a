@@ -4,7 +4,7 @@
 import acm.program.*;
 @SuppressWarnings("serial")
 
-/*
+/* Stanford CS106a from Assignment 2
  * This program will perform the sequence set forth by Douglas Hofstadter. The program
  * will ask for a number from the user, and then based on that number will perform a number of 
  * steps until the number is 1.
@@ -25,13 +25,16 @@ public class HailstoneSequence extends ConsoleProgram{
 				num = operationOdd(initNum);
 				println(initNum + " is odd, so 3n + 1 is: " + num);
 				initNum = num;
-			
 			}
-			counter ++;
+			counter ++;		//the counter will count how many computations are needed to reach 1
 		}
+		
+		//when while loop ends, print last line to user
 		println ("We have reached 1, it took " + counter + " computations");
 		
 	}
+	
+// Methods used within the run method
 	
 	private void intro(){
 		//ask user for input and explain program
@@ -47,9 +50,6 @@ public class HailstoneSequence extends ConsoleProgram{
 	// This method will be called if the result is an odd number
 	private int operationOdd(int result){
 		return (result * 3) + 1;
-		
-		
-		
 	}
 	
 	// This method will be called if the result is an even number
@@ -62,8 +62,5 @@ public class HailstoneSequence extends ConsoleProgram{
 		if(result % 2 == 0){
 			return true;
 		}else return false;
-		
-		
 	}
-	
 }
